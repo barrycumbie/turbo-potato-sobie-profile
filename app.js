@@ -7,6 +7,12 @@ app.set('view engine', 'ejs');
 app.use(bodyParser.urlencoded({extended: true})); 
 app.use(express.static(__dirname + '/public'))
 
+app.use((err, req, res, next) => {
+    console.error(err.stack);
+    res.status(500).send('Something broke!');
+});
+
+
 // change my code 
 
 app.get('/', function (req, res) {
@@ -41,6 +47,30 @@ app.get('/saveMyNameGet', (req,res)=>{
 
 })
 
+
+app.get('/async3',  async (req,res)=> {
+
+    
+    return await res.render('async3', {async3 : 'cat'}); 
+ 
+    console.log(req.params.blog); 
+
+   
+   
+});
+
+app.post('/async2', function (req, res) {
+  console.log('this', req.body); 
+  // res.render('async', {blogValue: 'blogValue'});
+  res.redirect('/'); 
+})
+
+app.get('/async', async (req, res)=> {
+   console.log(req.body); 
+   let getBlogVal = 'some valule'; 
+    res.render('async', {blogValue: getBlogVal}); 
+   console.log(getBlogVal);   
+})
 
 app.get('/ejs', function (req, res) {
   res.render('words',
