@@ -51,7 +51,7 @@ app.get('/saveMyNameGet', (req,res)=>{
 app.get('/async3',  async (req,res)=> {
 
     
-    return await res.render('async3', {async3 : 'cat'}); 
+    return await res.render('async3', {async3 : 'cat'});
  
     console.log(req.params.blog); 
 
