@@ -3,15 +3,38 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Ubuntu+Mono:ital,wght@0,400;0,700;1,400;1,700&display=swap');
 
 body {
-  background-image: url('data:image/svg+xml,%3Csvg xmlns="http://www.w3.org/2000/svg" width="36" height="72" viewBox="0 0 36 72"%3E%3Cg fill-rule="evenodd"%3E%3Cg fill="%239C92AC" fill-opacity="0.4"%3E%3Cpath d="M2 6h12L8 18 2 6zm18 36h12l-6 12-6-12z"/%3E%3C/g%3E%3C/g%3E%3C/svg%3E');
+  font-family: 'Roboto', sans-serif;
+  background-color: #D3D3D3;
 }
 
-li {
-  font-family: "Ubuntu Mono", monospace;
-  font-weight: 400;
-  font-style: normal;
+.card-title {
+  text-align: center;
 }
 
-/* use # to prefix css selector for dom/html element id attribute */
-#songList {
-  background-color: #CE93D8;}
+.display-3 {
+  text-align: center;
+}
+
+footer {
+  padding: 20px;
+  background-color: black;
+  color: white;
+}
+
+hr {
+  border: 2px solid black;
+}
+
+.card {
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+img {
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.navbar {
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}

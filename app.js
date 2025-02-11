@@ -21,7 +21,7 @@ const client = new MongoClient(uri, {
   }
 });
 
-const mongoCollection = client.db("barrySobieProfile").collection("barrySobieBlog"); 
+const mongoCollection = client.db("garrettSobieProfile").collection("garrettSobieMovie"); 
 
 function initProfileData() {
 

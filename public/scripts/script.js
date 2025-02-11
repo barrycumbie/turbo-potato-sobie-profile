@@ -4,3 +4,5 @@ $( document ).ready(function() {
   
   //more code here...
 });
+
+console.log("This is Garrett Bouldin\'s Web Profile");
