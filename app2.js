@@ -13,6 +13,9 @@ app.set('view engine', 'ejs');
 app.use(bodyParser.urlencoded({extended: true})); 
 app.use(express.static(__dirname + '/public'))
 
+
+
+
 // Create a MongoClient with a MongoClientOptions object to set the Stable API version
 const client = new MongoClient(uri, {
   serverApi: {
@@ -22,15 +25,48 @@ const client = new MongoClient(uri, {
   }
 });
 
-const mongoData = client.db("barrySobieProfile").collection("barrySobiePosts"); 
+console.log(shajs('sha256').update('cat').digest('hex')); 
 
-app.get('/', async function (req, res) {
-  
-  let results = await mongoData.find({}).toArray(); 
+async function run() {
+  try {
+    // Connect the client to the server	(optional starting in v4.7)
+    await client.connect();
+    // Send a ping to confirm a successful connection
+    await client.db("admin").command({ ping: 1 });
+    console.log("Pinged your deployment. You successfully connected to MongoDB!");
+  } finally {
+    // Ensures that the client will close when you finish/error
+    await client.close();
+  }
+}
+// run().catch(console.dir);
 
+async function getData() {
+
+  await client.connect(); 
+  let collection = await client.db("guitar-app-database").collection("guitar-app-songs"); 
+ 
+  let results = await collection.find({}).toArray(); 
+    
   console.log(results); 
-  res.render('profile', 
-    { profileData : results} ); 
+  return results; 
+
+}
+
+app.get('/read', async function (req, res) {
+  let getDataResults = await getData(); 
+  console.log(getDataResults); 
+  res.render('songs', 
+    { songData : getDataResults} ); 
+
+})
+
+
+
+//begin all my middlewares
+
+app.get('/', function (req, res) {
+  res.sendFile('index.html');
 
 })
 
