@@ -4,6 +4,7 @@ const shajs = require('sha.js')
 const app = express()
 const port = process.env.PORT || 3000;  
 const bodyParser = require('body-parser')
+const { ObjectId } = require('mongodb')
 const { MongoClient, ServerApiVersion } = require('mongodb');
 const uri = process.env.MONGO_URI;
 
@@ -22,65 +23,71 @@ const client = new MongoClient(uri, {
   }
 });
 
-const mongoData = client.db("barrySobieProfile").collection("barrySobiePosts"); 
+const mongoCollection = client.db("barrySobieProfile").collection("barrySobiePosts"); 
+
+function initSobiePosts(){
+
+  mongoCollection.insertOne(
+    {
+      title: "built a crud app", 
+      post: "full stack etc. whatever",
+      link: "forthcoming to my app!" 
+    }
+  )
+
+}
 
 app.get('/', async function (req, res) {
-  
-  let results = await mongoData.find({}).toArray(); 
+  let results = await mongoCollection.find({}).toArray(); 
+  // todo: do a check if no results
 
-  console.log(results); 
+  results.length === 0 ? 
+    initSobiePosts() : console.log('proceed');
+
+  results = await mongoCollection.find({}).toArray(); 
+    
   res.render('profile', 
-    { profileData : results} ); 
-
+    { mongoResults : results.reverse()} ); 
 })
 
-app.post('/saveMyName', (req,res)=>{
-  console.log('did we hit the post endpoint?'); 
-  console.log(req.body); 
-  // res.redirect('/ejs'); 
-  res.render('words',
-  {pageTitle: req.body.myName});
+app.post('/insert', async function (req, res) {
+    
+    await mongoCollection.insertOne(      
+      { title :  req.body.title,
+        post: req.body.post
+      }
+    );
+    res.redirect('/')
+}); 
 
-  // res.render('words',
-  // {theData : req.body});
 
+app.post('/delete', async function (req, res) {
+  console.log(req.body.deleteId); 
+    let result = await mongoCollection.findOneAndDelete( 
+    {
+      "_id": new ObjectId(req.body.deleteId)
+    }
+  ).then(result => {
+    console.log(result); 
+    res.redirect('/');
+  })
 
+}); 
+
+app.post('/update', async (req,res)=>{
+  let result = await mongoCollection.findOneAndUpdate( 
+  {_id: ObjectId.createFromHexString(req.body.updateId)}, { 
+    $set: 
+      {
+        title : req.body.updateTitle, 
+        post : req.body.updatePost 
+      }
+     }
+  ).then(result => {
+  console.log(result); 
+  res.redirect('/');
 })
-
-app.get('/saveMyNameGet', (req,res)=>{
-  console.log('did we hit the get endpoint?'); 
-
-  console.log('req.query: ', req.query); 
-
-  // console.log('req.params: ', req.params);
-
-  let reqName = req.query.myNameGet; 
-  // res.redirect('/ejs'); 
-
-  res.render('words',
-  {pageTitle: reqName});
-
-})
-
-
-app.get('/ejs', function (req, res) {
-  res.render('words',
-    {pageTitle: 'my cool ejs page'}
-  );
-})
-
-
-app.get('/nodemon', function (req, res) {
-  res.send('look ma, no kill node process then restart node then refresh browser...cool?');
-
-})
-
-//endpoint, middleware(s)
-app.get('/helloRender', function (req, res) {
-  res.send('Hello Express from Real World<br><a href="/">back to home</a>')
-})
-
-
+}); 
 
 
 app.listen(
