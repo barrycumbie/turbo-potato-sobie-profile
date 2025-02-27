@@ -6,7 +6,7 @@ CIS 486 Spring 2025 The Sobie Dev Co. Profile
 DEV JIG "PKG"
 
 1/ Dev Jig 1 Issue #113
-[https://github.com/barrycumbie/turbo-potato-sobie-profile/issues/113#issue-2885420162](https://github.com/barrycumbie/turbo-potato-sobie-profile/pull/116#issue-2885492422)
+https://github.com/barrycumbie/turbo-potato-sobie-profile/issues/113#issue-2885420162
 
 PROOF: Add link to added brittneyd.html here after it gets approved.
 
