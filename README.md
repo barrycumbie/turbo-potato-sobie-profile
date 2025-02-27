@@ -8,11 +8,12 @@ DEV JIG "PKG"
 1/ Dev Jig 1 Issue #113
 [https://github.com/barrycumbie/turbo-potato-sobie-profile/issues/113#issue-2885420162](https://github.com/barrycumbie/turbo-potato-sobie-profile/pull/116#issue-2885492422)
 
-PROOF: https://github.com/barrycumbie/turbo-potato-sobie-profile/blob/main/docs/milly.html
+PROOF: Add link to added brittneyd.html here after it gets approved.
 
 2/ as a repo collab: issue=>branch=>code=>pr=>reviewed=>[resolve conflict]=>merge.
+I reviewed Allison Lacy's code
 
-PR 89 = https://github.com/barrycumbie/turbo-potato-sobie-profile/pull/89/
+PR 106 = https://github.com/barrycumbie/turbo-potato-sobie-profile/pull/106#pullrequestreview-2649010509
 
 TEST JIG 2 PROOF:
 <img width="363" alt="image" src="https://github.com/user-attachments/assets/1fdd19c6-c8df-4889-a0bc-060082c0cdd6" />
