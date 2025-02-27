@@ -11,7 +11,7 @@ DEV JIG "PKG"
 
 PR 98: https://github.com/barrycumbie/turbo-potato-sobie-profile/pull/98
 
-proof: https://github.com/barrycumbie/turbo-potato-sobie-profile/blob/main/docs/garrett.html
+proof: <a href="https://github.com/barrycumbie/turbo-potato-sobie-profile/blob/main/docs/garrett.html">bt l link</a>
 
 2/ as a repo collab: issue=>branch=>code=>pr=>reviewed=>[resolve conflicts]=.merge.
 
