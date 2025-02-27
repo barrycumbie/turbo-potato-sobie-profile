@@ -9,8 +9,6 @@ As an outsider, oss contributer, issue=>fork=>code=>pr=>[await bc to merge]=>don
 
 [Austin PR27](https://github.com/barrycumbie/turbo-potato-sobie-profile/pull/27)
 
-[gggc](gjgjggjj)
-
 [Proof](https://github.com/barrycumbie/turbo-potato-sobie-profile/blob/main/docs/Austin.html)
 
 ## Jig 2
@@ -20,7 +18,7 @@ iss103 ... branch .... code ... pr
 
 
 ## Jig 3
-## code review link 
+code review link 
 
 [Reviewed pr105](https://github.com/barrycumbie/turbo-potato-sobie-profile/pull/105#pullrequestreview-2642623440)
 
