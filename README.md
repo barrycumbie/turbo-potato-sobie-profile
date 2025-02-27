@@ -10,16 +10,16 @@ As an outsider, oss contributer, issue=>fork=>code=>pr=>[await bc to merge]=>don
 
 [gggc](gjgjggjj)
 
-[proof:](https://github.com/barrycumbie/turbo-potato-sobie-profile/blob/main/docs/Austin.html)
+proof:[(https://github.com/barrycumbie/turbo-potato-sobie-profile/blob/main/docs/Austin.html)]
 
 <h2>Jig 2</h2> 
 iss103 ... branch .... code ... pr
-[pr104](https://github.com/barrycumbie/turbo-potato-sobie-profile/pull/104)
+pr104: [(https://github.com/barrycumbie/turbo-potato-sobie-profile/pull/104)]
 
 
 <h2>Jig 3</h2>  
 ## code review link 
-[reviewed pr105:](https://github.com/barrycumbie/turbo-potato-sobie-profile/pull/105#pullrequestreview-2642623440)
+reviewed pr105:[(https://github.com/barrycumbie/turbo-potato-sobie-profile/pull/105#pullrequestreview-2642623440)]
 
 <h2>Jig 4</h2> 
 package links
