@@ -20,8 +20,7 @@ DEV OPS = plan, code, build, test / release, deploy, operate, monitor
 DEV JIG "PKG"
 
 1/ Dev Jig 1 Issue #113
-
-https://github.com/barrycumbie/turbo-potato-sobie-profile/pull/101
+[https://github.com/barrycumbie/turbo-potato-sobie-profile/issues/113#issue-2885420162](https://github.com/barrycumbie/turbo-potato-sobie-profile/pull/116#issue-2885492422)
 
 PROOF: https://github.com/barrycumbie/turbo-potato-sobie-profile/blob/main/docs/milly.html
 
