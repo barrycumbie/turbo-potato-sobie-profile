@@ -11,7 +11,7 @@ https://github.com/barrycumbie/turbo-potato-sobie-profile/issues/113#issue-28854
 PROOF: Add link to added brittneyd.html here after it gets approved.
 
 2/ as a repo collab: issue=>branch=>code=>pr=>reviewed=>[resolve conflict]=>merge.
-I reviewed Allison Lacy's code
+<br>I reviewed Allison Lacy's code
 
 PR 106 = https://github.com/barrycumbie/turbo-potato-sobie-profile/pull/106#pullrequestreview-2649010509
 
