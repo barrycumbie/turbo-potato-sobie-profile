@@ -1,87 +1,29 @@
-const express = require('express')
-require('dotenv').config()
-const shajs = require('sha.js')
-const app = express()
-const port = process.env.PORT || 3000;  
-const bodyParser = require('body-parser')
-const { ObjectId } = require('mongodb')
-const { MongoClient, ServerApiVersion } = require('mongodb');
-const uri = process.env.MONGO_URI;
+const express = require('express');
+const bodyParser = require('body-parser');
+const multer = require('multer');
 
-app.set('view engine', 'ejs');
-app.use(bodyParser.urlencoded({extended: true})); 
-app.use(express.static(__dirname + '/public'))
+const app = express();
 
-// Create a MongoClient with a MongoClientOptions object to set the Stable API version
-const client = new MongoClient(uri, {
-  serverApi: {
-    version: ServerApiVersion.v1,
-    strict: true,
-    deprecationErrors: true,
-  }
+app.use('/documents', express.static(__dirname + '/public/documents'));
+app.use('/scripts', express.static(__dirname + '/public/scripts'));
+app.use('/styles', express.static(__dirname + '/public/styles'));
+
+app.use(function (req, res, next) {
+  res.header("Access-Control-Allow-Origin", "*");
+  res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
+  res.header("Access-Control-Allow-Methods", "GET, POST, PUT, DELETE");
+  next();
 });
 
-const mongoCollection = client.db("barrySobieProfile").collection("barrySobieBlog"); 
+app.set('view engine', 'ejs');
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({extended: true}));
 
-function initProfileData() {
+app.use('/', require('./controllers/HomeController'));
 
-  mongoCollection.insertOne({ 
-    title: "this is blog title",
-    post: "this is the post"
-  });
+const server = app.listen(3000, function() {
+  const host = server.address().address;
+  const port = server.address().port;
 
-}
-
-// initProfileData(); 
-
-
-app.get('/', async function (req, res) {
-  
-  let results = await mongoCollection.find({}).toArray(); 
-  
-  res.render('profile', 
-    { profileData : results} ); 
-
-})
-
-app.post('/insert', async (req,res)=> {
-
-  let results = await mongoCollection.insertOne({ 
-    title: req.body.title,
-    post: req.body.post
-  });
-
-  res.redirect('/');
-
-}); 
-app.post('/delete', async function (req, res) {
-  
-    let result = await mongoCollection.findOneAndDelete( 
-    {
-      "_id": new ObjectId(req.body.deleteId)
-    }
-  ).then(result => {
-    
-    res.redirect('/');
-  })
-
-}); 
-
-app.post('/update', async (req,res)=>{
-  let result = await mongoCollection.findOneAndUpdate( 
-  {_id: ObjectId.createFromHexString(req.body.updateId)}, { 
-    $set: 
-      {
-        title : req.body.updateTitle, 
-        post : req.body.updatePost 
-      }
-     }
-  ).then(result => {
-  console.log(result); 
-  res.redirect('/');
-})
-}); 
-
-
-
-app.listen(port, ()=> console.log(`server is running on ... localhost:${port}`) );
+  console.log("Server is running on http://%s:%s", host, port);
+});
