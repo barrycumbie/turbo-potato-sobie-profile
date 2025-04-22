@@ -39,7 +39,6 @@ const registrationSubmitClickHandler = () => {
 
 // When clicking on submit in the confirmation modal, send data to the backend
 document.getElementById('submitForm').addEventListener('click', async () => {
-    debugger;
     const formData = document.getElementById('confirmMessageBody').textContent; // Get the content from modal
     const parsedFormData = JSON.parse(formData); // Convert the string back to an object
 
