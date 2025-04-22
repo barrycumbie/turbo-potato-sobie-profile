@@ -20,6 +20,7 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: true}));
 
 app.use('/', require('./controllers/HomeController'));
+app.use('/register', require('./controllers/RegisterController'));
 
 const server = app.listen(3000, function() {
   const host = server.address().address;
